@@ -27,7 +27,7 @@
    4)、init process starts...
    5)、execute /etc/rc.d/sysinit (run command daemon)
    6)、start other modules (/etc/modules.conf)
-   7)、execute the run level scripts （分层启动 0、1、2、3、4、5、6）
+   7)、execute the run level scripts （分层启动 0、1、2、3、4、5、6, 可以更改启动级别）
    8)、execute /etc/rc.d/rc.local
    9)、execute /bin/login
    10)、shell started ...
@@ -43,6 +43,13 @@
     usermod 更改组
     userdel 删除user
     su username 更改用户
-
-
+15、文件权限
+    1)、ls -l信息
+    2)、r读，w写，x执行，-无
+    3)、所有者 所有者同组的其他用户 其余的人 
+    4)、改权限 chmod +x filename 增加可执行文件 chmod -x filename 去掉可执行文件
+    5)、只更改自己的权限chmod u+x,同组 chmod g+x,其他人 chmod o+x
+    6)、更改文件所有者 chown username filename
+    7)、用户所有者 用户组
+16、
 
