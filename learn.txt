@@ -12,4 +12,37 @@
    N 最后的数字代表分区。前四个分区（主分区或扩展分区）是用数字从1排列到4.逻辑分区从5开始。
    /dev/sda1
 6、mount point（挂载点）：将block device挂载到文件夹下
+7、MBR(Master Boot Record) MBR中包含硬盘的主引导程序和硬盘分区表。
+8、Linux分区方式：自动分区和手动分区（挂载硬盘到文件夹下）
+                  / 根分区 必须
+                  /usr 应用软件存放
+                  /home 用户
+                  /var 存放临时文件
+                  /boot 存放启动文件 128M is enough
+                  SWAP 交换分区 （物理内存的两倍）必须（虚拟内存）
+9、Linux 启动过程
+   1)、load bios (hardware information)
+   2)、read MBR's config to find out the OS
+   3)、load the kernel of the OS
+   4)、init process starts...
+   5)、execute /etc/rc.d/sysinit (run command daemon)
+   6)、start other modules (/etc/modules.conf)
+   7)、execute the run level scripts （分层启动 0、1、2、3、4、5、6）
+   8)、execute /etc/rc.d/rc.local
+   9)、execute /bin/login
+   10)、shell started ...
+10、获取详细信息man --help ESC ESC ESC ESC ESC
+11、ls -m适应屏幕横向输出
+12、whereis command 查找命令位置
+13、ln 硬链接和软连接的区别：软连接相当于快捷方式，硬链接拷贝一份，但保持同步
+14、users and groups 用户和组管理
+    useradd username /home 下增加一个主目录
+    passwd username 给username设定密码
+    /etc/passwd 中添加了相关信息 :为linux分隔符
+    groupadd /etc/group 添加组
+    usermod 更改组
+    userdel 删除user
+    su username 更改用户
+
+
 
