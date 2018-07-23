@@ -68,3 +68,19 @@
     -v:显示详细信息
     -f:归档文件名
     tar -jtvf filename.tar.bz2 （查看文件）-C 解压目录
+18、concatenate cat
+    echo "123" | cat - filename:先输出stdin，再输出filename content
+19、Recoding and playback of terminal sessions
+    script -t 2> timing.log -a output.session
+    scriptreplay tieing.log output.session
+20、find匹配多个文件
+    find . \(-name filename1 -o -name filename2 \) -print
+    -path 匹配文件路径和文件名
+    find . !(表示不包含) -name filename
+21、xargs(用到时再详细查，功能强大)
+    xargs命令是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，xargs能够处理管道或者stdin并将其转换成特定命令的命令参数。xargs也可以将单行或多行文本输入转换为其他格式，例如多行变单行，单行变多行。xargs的默认命令是echo，空格是默认定界符。这意味着通过管道传递给xargs的输入将会包含换行和空白，不过通过xargs的处理，换行和空白将被空格取代。xargs是构建单行命令的重要组件之一。
+    常用 -I -i 等
+22、tr translating set替换，删除多余字符等
+23、checksum:md5sum sha1sum
+    md5sum filename > filename.md5
+    md5sum -c filename.md5
