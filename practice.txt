@@ -1,0 +1,100 @@
+1.安装，创建和管理软件包
+  dpkg(选项)(参数)
+选项
+-i:安装软件包
+-r:删除软件包
+-p:删除软件包及配置文件
+-l:显示安装列表
+参数：
+Deb软件包
+2.文件权限信息
+如 drwxr-xr-x,d表示是目录，后面分别是owner,group,world三类用户权限，r为读，w为修改，x执行，-无此权限。
+3.查询文件
+find (目录) -name (文件名)
+locate (文件名)
+4.全部
+type (命令) 查看命令属性
+ln -s (文件1) (文件2) 建立链接
+mv (文件1) (文件2) 移动文件
+man (命令) (命令) --help 查看帮助
+mount /dev/cdrom /mnt/cdrom 将cdrom的文件挂载到mnt/cdrom下，默认mnt为接受外挂文件系统的目录
+cat -n (文件)  显示文件内容并且显示行号
+5.chown改变文件所属者
+chown (选项) (参数)  如 chown -R haolimin /usr/meng
+6.chmod +x hello.sh  更改hello.sh的访问权限为所有人执行
+
+
+1.切换python版本:
+当系统中存在多个版本的python时，切换命令如下：
+sudo rm /usr/bin/python
+切换到3.4：
+sudo ln -s /usr/bin/python3.4 /usr/bin/python
+切换回2.7：
+sudo ln -s /usr/bin/python2.7 /usr/bin/python
+2.权限不足:
+chmod +777 ./morning
+一般是在运行一个文件时，明明存在该文件，却提示不存在该文件的情况下运行该命令，./morning是要运行的文件
+3.拷贝文件:
+sudo cp -r www.linuxidc.com_tar.gz /usr/local
+4.修改环境变量:
+sudo gedit /etc/environment
+5.删除文件:
+sudo rm -rf /usr/include/eigen3
+6.上传文件到服务器:
+sudo scp /home/dapeng/下载/N3LP-master.zip wujing@202.207.12.229:/home/wujing/dapeng
+/home/dapeng/下载/N3LP-master.zip ：表示要上传到服务器的文件，wujing@202.207.12.229:/home/wujing/dapeng中的wujing是服务器的用户名，202.207.12.229是服务器ip，后面/home/wujing/dapeng是上传到服务器的路径位置。
+7.解压缩文件:
+sudo zip xx.zip压缩，
+sudo unzip xx.zip 解压，
+sudo tar zcvf xx.tar.gz压缩
+sudo tar zxvf xx.tar.gz解压
+8.创建文件夹:
+sudo mkdir –r filename
+9.查看系统硬件简略信息:
+sudo lshw -short
+10.查看当前cd目录位置
+sudo pwd
+11.查看cpu，内存等资源使用状态:
+sudo top
+12.编辑进程的优先级:
+进入top命令后：
+按r键-->输入进程id-->输入nice值-->回车即可
+说明：PID:进程id，PR:优先级，NI:nice值
+PR=PR(old)+NI
+13.查看gpu工作状态：
+nvidia-smi
+14.查看硬盘分配使用状况：
+df -hl
+15.筛选查看某一进程的运行情况，如查看sdk_stress进程：
+ps -ef | grep sdk_stress
+16.杀掉所有的挂起的某一进程：
+killall -9 process_name
+17.查看压缩文件或其他文件的md5值：
+md5sum file.zip
+18.查看某一进程的详细信息：
+ll /proc/6768 （6768为进程号）
+19.查看文件夹中的所有文件和子文件夹的大小：
+du -sh *
+20.查看文件夹的创建时间以及相关所有者权限：
+ll -h
+21.查找文件：
+find ./ -name (./为查找的目录，name为查找的文件)
+22.git 提交代码步骤：
+	git status  检查代码状态
+	git pull 更新代码到本地
+	git commit –a –m”更新说明”
+	git push origin HEAD:refs/for/master
+23.查找包含关键字的任意文档：
+	grep –r “key_value” *
+24.远程ssh登录
+ssh username@ip_address
+25.多线程
+jobs -l  观察目前的背景工作状态
+fg jobnumber 将背景工作拿到前景来处理
+26. ps aux用来查看静态进程信息
+    top 用来查看动态进程信息 -P按CPU占用来排序
+                            -M按内存占用来排序
+                            -d 1  1秒刷新一次
+27、pstree 以文档树查看进程 -p
+28、kill -9 PID 杀死进程
+    killall 进程名  杀死进程名
