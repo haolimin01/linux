@@ -1,0 +1,57 @@
+#该文件描述了Linux下C/C++开发环境
+一、Linux下C语言开发环境
+1、C/C++ ----->.s ---->  目标文件.o -----> 可执行文件 or 动态静态库
+2、GCC (GUN Complier Collection)是GUN下C语言编译器及相关工具集成，包含预处理器，编译器，汇编器，连接器等工具。
+gcc [可选] 目标文件 源文件
+Wall 打印警告信息
+I 指定头文件搜索路径
+L 指定库搜索路径
+l 指定引用的库
+static 使用静态库
+shared 使用动态库
+S 编译生成汇编文件.s
+c 编译生成目标文件.o
+o 指定输出文件名
+fPIC 告诉gcc创建地址独立的目标文件
+3、汇编工具 as: 将汇编语言源代码汇编为目标代码，集成到了gcc .c --> .o
+4、链接器: ld .o --> exec
+链接器将一系列的目标文件、库和链接命令文件作为输入，根据链接命令文件的要求将目标代码进行合并，处理外部引用和符号重定位，最后生成所需的目标代码。
+ld [可选] 目标文件列表
+-e entry 指定程序入口
+-M 输出链接信息
+-l 指定链接库,库的命名规则为libXXX.a -lXXX
+-L dir 添加搜索路径 -L./lib
+-o 设置输出文件名
+-T commandfile 指定链接命令文件
+-Map 指定输出映像文件
+5、项目管理工具 GNU make
+目标1 目标2...目标n : 依赖文件列表
+<tab>command1
+<tab>command2
+...
+<tab>commandn
+make [选项] [目标] （编译Makefile）
+-f file make使用的默认规则文件为GNUmakefile,makefile,Makefile,否则使用-f说明
+make中包含四种类型的变量：自定义变量、环境变量、预定义变量和自动变量。
+自定义变量：用户自己定义，大小写敏感
+环境变量：make在运行过程中，将环境变量转化为同名的make变量。
+预定义变量：AR 归档程序(ar)
+            AS 汇编器(as)
+            CC C语言编译器(cc)
+            CXX C++编译器(g++)
+            CPP 带有标准输出的c语言预处理程序($(CC) -E)
+            RM (rm -f)
+自动变量：$^ 所有的依赖文件，以空格分开，以出现的先后为序
+          $< 第一个依赖文件名称
+          $? 所有的依赖文件，以空格分开，它们的修改日期比目标的创建日期晚
+          $* 不包含扩展名的目标文件名称
+          $@ 目标的完整名称
+$(CC) $(CFLAGS) $(CPPFLAGS) -o TARGET -c SRC 
+6、静态库 libxxx.a
+ar [选项] [归档文件] 目标文件列表
+ar -cru libxxx.a filename1.o filename2.o
+gcc main.c -L. -lxxx -o main
+7、动态库
+gcc -fPIC -c test.c (test.o)
+gcc -shared test.o -o libxxx.so
+gcc -shared main.c -L. -lxxx -o test.o
