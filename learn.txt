@@ -51,5 +51,6 @@
     5)、只更改自己的权限chmod u+x,同组 chmod g+x,其他人 chmod o+x
     6)、更改文件所有者 chown username filename
     7)、用户所有者 用户组
-16、
-
+16、Linux中的inode
+    每个inode都有一个号码，操作系统用inode号码来识别不同的文件。
+    ls -i查看文件的inode编号，根据inode来删除文件：# find . -inum 271761664 -delete
