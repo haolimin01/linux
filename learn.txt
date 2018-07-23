@@ -54,3 +54,17 @@
 16、Linux中的inode
     每个inode都有一个号码，操作系统用inode号码来识别不同的文件。
     ls -i查看文件的inode编号，根据inode来删除文件：# find . -inum 271761664 -delete
+17、linux中的压缩和解压缩
+    *.gz
+    *.bz2
+    *.xz   最佳压缩，耗时最长    
+    *.zip   
+    tar -j(J/z)c(x)vf filename.tar.bz2(gz/xz) filename
+    -j:bz2
+    -J:xz
+    -z:gzip
+    -c:压缩
+    -x:解压
+    -v:显示详细信息
+    -f:归档文件名
+    tar -jtvf filename.tar.bz2 （查看文件）-C 解压目录
