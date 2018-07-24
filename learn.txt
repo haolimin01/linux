@@ -40,7 +40,7 @@
     passwd username 给username设定密码
     /etc/passwd 中添加了相关信息 :为linux分隔符
     groupadd /etc/group 添加组
-    usermod 更改组
+    usermod 更改用户信息
     userdel 删除user
     su username 更改用户
 15、文件权限
@@ -112,11 +112,20 @@
     组密码
     组管理员
     组的附加用户
-27、
-    
-
-   
-    
-
+27、/etc/skel/
+    添加用户的模板
+28、添加用户所做的操作
+    /etc/passwd
+    /etc/shadow
+    /etc/group
+    /etc/gshadow
+    mkdir /home/username
+    /var/spool/mail/username 添加邮件
+29、修改用户信息
+    usermod
+    chage 修改密码状态 chage -d 0 username
+30、id 查看用户信息
+31、su切换用户存在的问题
+    su - username !!!
 
 
