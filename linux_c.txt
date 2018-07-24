@@ -55,3 +55,4 @@ gcc main.c -L. -lxxx -o main
 gcc -fPIC -c test.c (test.o)
 gcc -shared test.o -o libxxx.so
 gcc -shared main.c -L. -lxxx -o test.o
+8、存储空间包含超级块、inode区、数据区。

@@ -84,3 +84,39 @@
 23、checksum:md5sum sha1sum
     md5sum filename > filename.md5
     md5sum -c filename.md5
+24、/etc/passwd root:x:0:0:root:/root:/bin/bash 
+    用户
+    密码标识 x
+    uid 是操作系统唯一认识的标识(0-超级用户 1-499系统用户 500-65535 普通用户)
+    gid 用户初始组id (初始组只有一个+附加组可以有很多)
+    用户说明
+    home directory
+    登录之后的shell /usr/sbin/nologin无法登录
+25、/etc/shadow 9个字段 daemon:*:17086:0:99999:7:::
+    user
+    密码 *无密码，不能登录
+    设置密码时间
+    两次密码的修改间隔
+    密码有效期
+    到期前几天开始提示
+    密码过期之后的宽限时间
+    账号失效时间(时间戳表示)
+    保留
+26、/etc/group
+    组名
+    组的密码
+    gid
+    组的附加用户
+    /etc/gshadow
+    组名
+    组密码
+    组管理员
+    组的附加用户
+27、
+    
+
+   
+    
+
+
+
