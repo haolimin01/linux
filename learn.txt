@@ -10,7 +10,7 @@
    xx 分区名的前两个字母标明分区所在设备的类型。通常是hd（IDE磁盘）或sd（SCSI磁盘）。
    y 这个字母表明分区所在的设备。例如，/dev/hda（第一个IDE磁盘）或/dev/sdb（第二个SCSI磁盘）
    N 最后的数字代表分区。前四个分区（主分区或扩展分区）是用数字从1排列到4.逻辑分区从5开始。
-   /dev/sda1
+   /dev/sda1  分区所在位置IDE磁盘
 6、mount point（挂载点）：将block device挂载到文件夹下
 7、MBR(Master Boot Record) MBR中包含硬盘的主引导程序和硬盘分区表。
 8、Linux分区方式：自动分区和手动分区（挂载硬盘到文件夹下）
@@ -49,7 +49,7 @@
     3)、所有者 所有者同组的其他用户 其余的人 
     4)、改权限 chmod +x filename 增加可执行文件 chmod -x filename 去掉可执行文件
     5)、只更改自己的权限chmod u+x,同组 chmod g+x,其他人 chmod o+x
-    6)、更改文件所有者 chown username filename
+    6)、更改文件所有者 chown username:usergroup filename
     7)、用户所有者 用户组
 16、Linux中的inode
     每个inode都有一个号码，操作系统用inode号码来识别不同的文件。
